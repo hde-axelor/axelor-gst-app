@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+	<grid model="com.axelor.gst.db.InvoiceLine" title="Invoice Line"
+		name="">
+
+		<field name="product" />
+		<field name="hsbn" title="HSBN" />
+		<field name="item" />
+		<field name="qty" />
+		<field name="price" />
+		<field name="netAmount" title="Net Amount" />
+		<field name="gstRate" title="GST Rate" />
+		<field name="igst" title="IGST" />
+		<field name="sgst" title="SGST" />
+		<field name="cgst" title="CGST" />
+		<field name="grossAmount" title="Gross Amount" />
+
+	</grid>
+	
+	<form model="com.axelor.gst.db.InvoiceLine" title="Invoice Line.." name="invoiceItems" >
+     
+     <panel title="Add">
+      <field name="product" title="Product" onChange="product-actions-group" />
+      <field name="hsbn" title="HSBN" readonly="true"/>
+      <field name="item"/>
+      <field name="qty" onChange="calculate.amount"/>
+      <field name="price" onChange="calculate.amount" readonly="true"/>
+      <field name="netAmount" readonly="true"/>
+      <field name="gstRate" title="GST Rate"  onChange="calculate.amount"  readonly="true"/>
+      <field name="igst" title="IGST"/>
+      <field name="sgst" title="SGST"/>
+      <field name="cgst" title="CGST"/>
+      <field name="grossAmount" title="Gross Amount"/>
+       </panel>
+	</form>
+	
+	
+	<action-group name="product-actions-group">
+	<action name="product-actions"/>
+	<action name="calculate.amount"/>
+	</action-group>
+
+	<action-attrs name="product-actions">
+		<attribute name="value:set" for="gstRate" expr="eval: product.gstRate" if="product"/>
+		<attribute name="value:set" for="item" expr="eval:  product.code "/>
+		<attribute name="value:set" for="price" expr="eval: product.salePrice"/>
+		<attribute name="value:set" for="qty" expr="1"/>
+		<attribute name="value:set" for="hsbn" expr="eval: product.hsbn"/>
+		<attribute name="value:set" for="product" expr="eval:product"/>
+	</action-attrs>
+	
+	
+	
+	
+	<action-method name="calculate.amount">
+	<call class="com.axelor.gst.ControllerMethod.InvoiceLineController" method="calculateAmount"/>
+	</action-method>                                                                 
+
+   
+
+</object-views>

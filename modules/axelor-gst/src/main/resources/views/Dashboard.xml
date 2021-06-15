@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.3.xsd">
+
+
+	<menuitem title="Dashboard" name="menu-dashboard"
+		icon="fa-bar-chart" icon-background="pink" />
+
+	<menuitem title="Welcome" name="menu-welcome"
+		parent="menu-dashboard" action="welcome.page" />
+
+	<action-view name="welcome.page" title="Welcome">
+		<view type="dashboard" name="dashboard-view" />
+	</action-view>
+
+	<dashboard name="dashboard-view" title="Check Data">
+		<dashlet action="chart:validated.invoices.per.customer" />
+		<dashlet action="chart:invoice.per.status" />
+		<dashlet action="chart:category-per-product" />
+		<dashlet action="chart:customer.per.state" />
+	</dashboard>
+
+	<chart name="validated.invoices.per.customer"
+		title="Unpaid Invoices Per Customer">
+
+	<dataset type="sql">
+       <![CDATA[
+       
+        select 
+        
+        gst_party.name,
+       
+        count(party) as invoicecount
+        
+        from gst_invoice
+        
+        join gst_party on gst_party .id = gst_invoice .party
+        
+        where 
+        
+        status = 'validated'
+        
+        
+        group by gst_party.name
+       
+       ]]>
+       </dataset>
+		<category key="name" type="text" />
+		<series key="invoicecount" type="bar" groupBy="name" />
+	</chart>
+
+
+
+    <chart name="invoice.per.status" title="Invoices / Status">
+		<dataset type="sql">
+  <![CDATA[ 
+     select 
+    
+     gst_invoice.status as sta,
+     sum(gst_invoice.gross_amount) as amount
+     
+     from gst_invoice 
+     group by status 
+     
+    ]]>
+    </dataset>
+
+		<category key="sta" type="text" />
+		<series key="amount" type="bar" groupBy="sta" />
+	</chart>
+
+
+
+
+	<chart name="category-per-product"
+		title="Invoices Per Category per Product">
+
+   <dataset type="sql">
+   <![CDATA[
+    select 
+   
+   count(gp.category) as count_category, 
+   gpc.name as category_name
+   
+   from gst_product gp
+   left join gst_product_category gpc on gpc.id  = gp.category 
+    
+   group by gpc.name 
+ 
+  ]]>
+  </dataset>
+	<category key="category_name" type="text" />
+	<series key="count_category" type="bar" groupBy="category_name" />
+	</chart>
+
+	<chart name="customer.per.state" title="Customer / State">
+	<dataset type="sql">
+         <![CDATA[
+		SELECT 
+					state.name as state_name, 
+					count(distinct party_addr.id) as party_per_state
+				FROM 
+					gst_state state
+				LEFT JOIN 
+					gst_address address on address.state = state.id
+				LEFT JOIN(
+					SELECT 
+						party.id, 
+						pa.address as addr 
+					FROM
+						gst_party party 
+					LEFT JOIN 
+						gst_party_address pa on party.id = pa.gst_party
+					WHERE 
+						party.customer = true
+				) 
+					party_addr on address.id = party_addr.addr
+				GROUP BY 
+					state.name
+			
+        ]]>  
+   </dataset>
+		<category key="state_name" type="text" />
+		<series key="party_per_state"  type="pie" groupBy="state_name" />
+	</chart>
+
+
+</object-views>
