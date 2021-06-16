@@ -18,20 +18,27 @@
 	</grid>
 
 	<form model="com.axelor.gst.db.BankAccount" title="Bank Account"
-		name="bank-form">
+		name="bank-form" onNew="record-account-type">
 
 		<panel title="Add Account">
 
 			<field name="bank" />
 			<field name="accountNo" title="Account Number" />
 			<field name="ifsc" title="IFSC Code" />
-			<field name="type" />
+			<field name="type" selection="account-type" />
 			<field name="address" />
 
 		</panel>
 
-
 	</form>
+	<selection name="account-type">
+		<option value="SAVINGS">SAVINGS</option>
+		<option value="CURRENT">CURRENT</option>
+	</selection>
 
+	<action-record name="record-account-type"
+		model="com.axelor.gst.db.BankAccount">
+		<field name="type" expr="CURRENT" />
+	</action-record>
 
 </object-views>

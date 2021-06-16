@@ -5,11 +5,11 @@ import com.axelor.gst.ServiceMethod.SequenceService;
 import com.axelor.gst.db.Sequence;
 import com.axelor.gst.db.repo.SequenceRepository;
 import com.google.inject.Inject;
-import com.google.inject.persist.Transactional;
 
 public class SequenceImpl implements SequenceService {
-	
-	@Inject SequenceRepository sequenceRepo;
+
+	@Inject
+	SequenceRepository sequenceRepo;
 
 	@Override
 	public String getNextNo(Sequence sequence) {
@@ -39,7 +39,8 @@ public class SequenceImpl implements SequenceService {
 		StringBuilder newNumber = new StringBuilder();
 		String oldNumber = sequence.getNextNumber();
 		newNumber.append(sequence.getPrefix());
-		long number = Long.parseLong(oldNumber.substring(sequence.getPrefix().length(),sequence.getPrefix().length() + sequence.getPadding())) + 1;
+		long number = Long.parseLong(oldNumber.substring(sequence.getPrefix().length(),
+				sequence.getPrefix().length() + sequence.getPadding())) + 1;
 		long numSize = String.valueOf(number).length();
 		for (int i = 0; i < sequence.getPadding(); i++)
 			newNumber.append((i == sequence.getPadding() - numSize) ? number : "0");

@@ -13,7 +13,7 @@
 		<field name="gstin" title="GSTIN" />
 		<field name="logo" />
 		<field name="contact" />
-		<field name="Bankdetails" title="Bank Details" />
+		<field name="Bankdetails" title="Bank Details"/>
 		<field name="address" />
 
 	</grid>
@@ -40,8 +40,8 @@
 		<panel title="Contacts">
 			<field name="contact" colSpan="12" showTitle="false">
 				<editor>
-					<field name="name" />
-					<field name="type" selection="contact.type"/>
+					<field name="name" required="false"/>
+					<field name="type" selection="contact.type" required="false"/>
 					<field name="primaryEmail" />
 					<field name="secondaryEmail" />
 					<field name="primaryPhone" />
@@ -51,27 +51,17 @@
 		</panel>
 
 		<panel title="Bank Details">
-			<field name="bankdetails" colSpan="12" showTitle="false">
-				<editor>
-					<field name="bank" />
-					<field name="accountNo" title="Account No" />
-					<field name="ifsc" title="IFSC Code" />
-					<field name="type" selection="account.type" />
-				</editor>
-			</field>
+			<field name="bankdetails" colSpan="12" showTitle="false"/>
 		</panel>
 
 	</form>
 
-	<selection name="account.type">
-		<option value="Savings">Savings Account</option>
-		<option value="Current Account">Current Account</option>
-	</selection>
 
 	<selection name="contact.type">
 		<option value="Primary Email">Primary Email</option>
 		<option value="Secondary Email">Secondary Email</option>
 		<option value="Others">Others</option>
 	</selection>
+	
 
 </object-views>

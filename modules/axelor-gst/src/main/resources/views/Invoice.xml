@@ -42,7 +42,7 @@
 			<field name="company"/>
 			<field name="party" onChange="group-action-invoice" />
 			<field name="partyContact" title="Party Contact" />
-			<field name="invoiceAddress" title="Invoice Address"   canEdit="false"/>
+			<field name="invoiceAddress" title="Invoice Address"   canEdit="false" />
 			<field name="shippingAddress" title="Shipping Address" hideIf="sameAsInvoiceAddress"  />
 			<field name="sameAsInvoiceAddress"	title="Invoice Address for Shipping" onChange="action-set-shipping" />
 
@@ -54,7 +54,8 @@
 			<button onClick="action-cancelled,save" name="cancelled-button" title="Cancelled"  showIf="status != 'CANCELLED'" />
 		</panel>
 		<panel >
-			<field name="invoiceItems" ref="com.axelor.gst.db.InvoiceLine" colSpan="12"  onChange="calclate-invoice-amount"/>
+			<field name="invoiceItems" ref="com.axelor.gst.db.InvoiceLine" colSpan="12"  
+			onChange="calclate-invoice-amount" showIf="invoiceAddress"/>
 		</panel>
 		
 		<panel title="Amount Details">
@@ -132,7 +133,7 @@
 	<action-record name="action-record-value-for-data" model="com.axelor.gst.db.Invoice">
 	  <field name="invoiceDateTime" expr="eval:__datetime__"/>
 	  <field name="status" expr="DRAFT"/>
-	  <field name="sameAsInvoiceAddress" expr="false"/>
+	  <field name="sameAsInvoiceAddress" expr="true"/>
 	  <field name="company" expr="eval:__repo__(Company).all().fetchOne()"/>
 	</action-record>
 	

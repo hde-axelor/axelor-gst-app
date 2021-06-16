@@ -11,7 +11,7 @@
 	<module name="gst" package="com.axelor.gst.db" />
 
 	<entity name="Company">
-		<string name="name" required="true" default="Company" />
+		<string name="name" required="true"/>
 		<string name="gstin" min="15" max="15" />
 
 		<many-to-one ref="com.axelor.meta.db.MetaFile" name="logo" />
