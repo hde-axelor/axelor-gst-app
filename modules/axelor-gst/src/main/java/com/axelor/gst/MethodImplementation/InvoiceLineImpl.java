@@ -25,14 +25,14 @@ public class InvoiceLineImpl implements InvoiceLineService {
 				invoiceLine.setSgst(
 						(invoiceLine.getNetAmount().multiply(invoiceLine.getGstRate()).divide(new BigDecimal(100)))
 								.divide(new BigDecimal(2)));
-				invoiceLine.setCgst(
+				invoiceLine.setCgst( 
 						(invoiceLine.getNetAmount().multiply(invoiceLine.getGstRate()).divide(new BigDecimal(100)))
 								.divide(new BigDecimal(2)));
 
 			} else {
 
 				invoiceLine.setIgst(
-						invoiceLine.getNetAmount().multiply(invoiceLine.getGstRate()).divide(new BigDecimal(100)));
+						(invoiceLine.getNetAmount().multiply(invoiceLine.getGstRate()).divide(new BigDecimal(100))));
 			}
 
 			invoiceLine
