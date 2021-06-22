@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.axelor.gst.ServiceMethod.ListofProducts;
-import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.InvoiceLine;
 import com.axelor.gst.db.Product;
 import com.axelor.gst.db.repo.ProductRepository;

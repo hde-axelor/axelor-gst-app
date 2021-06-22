@@ -19,8 +19,9 @@
 	<dashboard name="dashboard-view" title="Check Data">
 		<dashlet action="chart:validated.invoices.per.customer" />
 		<dashlet action="chart:invoice.per.status" />
-		<dashlet action="chart:category-per-product" />
+		<dashlet action="chart:category.per.product" />
 		<dashlet action="chart:customer.per.state" />
+		<dashlet action="older.invoices" colSpan="12"/>
 	</dashboard>
 
 	<chart name="validated.invoices.per.customer"
@@ -75,7 +76,7 @@
 
 
 
-	<chart name="category-per-product"
+	<chart name="category.per.product"
 		title="Invoices Per Category per Product">
 
    <dataset type="sql">
@@ -126,6 +127,11 @@
 		<category key="state_name" type="text" />
 		<series key="party_per_state"  type="pie" groupBy="state_name" />
 	</chart>
-
+	
+	<action-view name="older.invoices" title="Invoices Older than One Month" model="com.axelor.gst.db.Invoice" >
+	<view type="grid" name="invoice-grid"/>
+	<domain>self.status = :invoice_status</domain>
+	<context name="invoice_status" expr="validated"/>	
+	</action-view>
 
 </object-views>

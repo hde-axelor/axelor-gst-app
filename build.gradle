@@ -4,12 +4,14 @@ buildscript {
     mavenCentral()
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url 'https://repository.axelor.com/nexus/public/' }
+    
   }
   ext.platformVersion = '5.3.+'
   ext.appVersion = '5.3.0'
   repositories repos
   dependencies {
-    classpath "com.axelor:axelor-gradle:${platformVersion}"
+    classpath "com.axelor:axelor-gradle:${platformVersion}" 
+    
   }
 }
 
@@ -39,4 +41,5 @@ allprojects{
 dependencies {
   // add dependencies
   compile project(':modules:axelor-gst')
+   
 }
