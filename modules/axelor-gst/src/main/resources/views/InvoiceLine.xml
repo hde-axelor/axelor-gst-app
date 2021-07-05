@@ -58,7 +58,7 @@
 	
 	
 	<action-method name="calculate.amount">
-	<call class="com.axelor.gst.ControllerMethod.InvoiceLineController" method="calculateAmount"/>
+	<call class="com.axelor.gst.web.InvoiceLineController" method="calculateAmount"/>
 	</action-method>                                                                 
 
    

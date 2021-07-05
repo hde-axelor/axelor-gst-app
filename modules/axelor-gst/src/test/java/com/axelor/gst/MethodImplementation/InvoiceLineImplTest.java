@@ -12,13 +12,14 @@ import com.axelor.gst.db.Company;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.InvoiceLine;
 import com.axelor.gst.db.State;
+import com.axelor.gst.service.impl.InvoiceLineServiceImpl;
  
 public class InvoiceLineImplTest {
 
 	@Test
 	public void test() {
 
-		InvoiceLineImpl inv = new InvoiceLineImpl();
+		InvoiceLineServiceImpl inv = new InvoiceLineServiceImpl();
 
 		InvoiceLine invoiceLineExpected = new InvoiceLine();
 
@@ -54,7 +55,7 @@ public class InvoiceLineImplTest {
 	@Test
 	public void elsePartTest() {
 
-		InvoiceLineImpl inv = new InvoiceLineImpl();
+		InvoiceLineServiceImpl inv = new InvoiceLineServiceImpl();
 		InvoiceLine invoiceLineExpected = new InvoiceLine();
 
 		invoiceLineExpected.setItem("Test case 2");

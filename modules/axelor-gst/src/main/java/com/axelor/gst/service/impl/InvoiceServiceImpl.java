@@ -1,13 +1,13 @@
-package com.axelor.gst.MethodImplementation;
+package com.axelor.gst.service.impl;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.axelor.gst.ServiceMethod.CalculateInvoice;
+import com.axelor.gst.Service.InvoiceService;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.InvoiceLine;;
 
-public class InvoiceImpl implements CalculateInvoice {
+public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
 	public Invoice calculateInvoiceAmount(Invoice invoice) {

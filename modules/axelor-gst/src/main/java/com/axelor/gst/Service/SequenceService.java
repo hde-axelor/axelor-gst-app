@@ -1,4 +1,4 @@
-package com.axelor.gst.ServiceMethod;
+package com.axelor.gst.Service;
 
 import com.axelor.gst.db.Sequence;
 

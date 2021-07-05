@@ -132,6 +132,7 @@
 	<view type="grid" name="invoice-grid"/>
 	<domain>self.status = :invoice_status</domain>
 	<context name="invoice_status" expr="validated"/>	
+	
 	</action-view>
 
 </object-views>

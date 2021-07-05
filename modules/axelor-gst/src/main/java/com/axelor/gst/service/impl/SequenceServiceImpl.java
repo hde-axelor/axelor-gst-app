@@ -1,12 +1,12 @@
-package com.axelor.gst.MethodImplementation;
+package com.axelor.gst.service.impl;
 
 import com.axelor.common.StringUtils;
-import com.axelor.gst.ServiceMethod.SequenceService;
+import com.axelor.gst.Service.SequenceService;
 import com.axelor.gst.db.Sequence;
 import com.axelor.gst.db.repo.SequenceRepository;
 import com.google.inject.Inject;
 
-public class SequenceImpl implements SequenceService {
+public class SequenceServiceImpl implements SequenceService {
 
 	@Inject
 	SequenceRepository sequenceRepo;

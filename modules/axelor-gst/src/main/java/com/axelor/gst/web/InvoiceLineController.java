@@ -1,6 +1,6 @@
-package com.axelor.gst.ControllerMethod;
+package com.axelor.gst.web;
 
-import com.axelor.gst.ServiceMethod.InvoiceLineService;
+import com.axelor.gst.Service.InvoiceLineService;
 import com.axelor.gst.db.Address;
 import com.axelor.gst.db.Company;
 import com.axelor.gst.db.Invoice;
@@ -29,17 +29,18 @@ public class InvoiceLineController {
 		invoiceLine.setInvoice(invoice);
 
 		invoiceLine = invoiceLineService.calculateInvoiceLine(invoiceLine);
-
-		response.setValue("product", invoiceLine.getProduct());
-		response.setValue("qty", invoiceLine.getQty());
-		response.setValue("price", invoiceLine.getPrice());
-		response.setValue("hsbn", invoiceLine.getHsbn());
-		response.setValue("netAmount", invoiceLine.getNetAmount());
-		response.setValue("gstRate", invoiceLine.getGstRate());
-		response.setValue("igst", invoiceLine.getIgst());
-		response.setValue("sgst", invoiceLine.getSgst());
-		response.setValue("cgst", invoiceLine.getCgst());
-		response.setValue("grossAmount", invoiceLine.getGrossAmount());
+         
+	    response.setValues(invoiceLine);
+		/*
+		 * response.setValue("product", invoiceLine.getProduct());
+		 * response.setValue("qty", invoiceLine.getQty()); response.setValue("price",
+		 * invoiceLine.getPrice()); response.setValue("hsbn", invoiceLine.getHsbn());
+		 * response.setValue("netAmount", invoiceLine.getNetAmount());
+		 * response.setValue("gstRate", invoiceLine.getGstRate());
+		 * response.setValue("igst", invoiceLine.getIgst()); response.setValue("sgst",
+		 * invoiceLine.getSgst()); response.setValue("cgst", invoiceLine.getCgst());
+		 * response.setValue("grossAmount", invoiceLine.getGrossAmount());
+		 */
 
 	}
 }

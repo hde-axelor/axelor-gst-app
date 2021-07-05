@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cities>
+	<city>
+		<name>Bengaluru</name>
+		<state>Karnataka</state>
+		<country>India</country>
+	</city>
+	<city>
+		<name>Varanasi</name>
+		<state>Uttar Pradesh</state>
+		<country>India</country>
+	</city>
+</cities>

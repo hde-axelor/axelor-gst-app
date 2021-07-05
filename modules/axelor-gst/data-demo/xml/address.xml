@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<address-book>
+    <address>
+       <type>Invoice</type>
+      <line1>House no F-102</line1>
+      <line2>Electronic city</line2>
+      <city>Bengaluru</city>
+      <state>Karnataka</state>
+      <country>India</country>
+ </address>
+</address-book>

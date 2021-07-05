@@ -1,15 +1,15 @@
-package com.axelor.gst.ControllerMethod;
+package com.axelor.gst.web;
 
-import com.axelor.gst.ServiceMethod.CalculateInvoice;
+import com.axelor.gst.Service.InvoiceService;
 import com.axelor.gst.db.Invoice;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.google.inject.Inject;
 
-public class InvoiceControllerMethod {
+public class InvoiceController {
 
 	@Inject
-	CalculateInvoice calculateInvoice;
+	InvoiceService calculateInvoice;
 
 	public void invoice(ActionRequest request, ActionResponse response) {
 

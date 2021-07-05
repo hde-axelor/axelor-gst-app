@@ -1,6 +1,6 @@
-package com.axelor.gst.ControllerMethod;
+package com.axelor.gst.web;
 
-import com.axelor.gst.ServiceMethod.SequenceService;
+import com.axelor.gst.Service.SequenceService;
 import com.axelor.gst.db.Sequence;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;

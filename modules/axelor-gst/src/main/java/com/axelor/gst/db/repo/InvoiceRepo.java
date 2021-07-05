@@ -1,12 +1,10 @@
-package com.axelor.gst.repo;
+package com.axelor.gst.db.repo;
 
 import javax.persistence.PersistenceException;
 
-import com.axelor.gst.ServiceMethod.SequenceService;
+import com.axelor.gst.Service.SequenceService;
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.Sequence;
-import com.axelor.gst.db.repo.InvoiceRepository;
-import com.axelor.gst.db.repo.SequenceRepository;
 import com.axelor.inject.Beans;
 import com.axelor.meta.db.MetaModel;
 import com.axelor.meta.db.repo.MetaModelRepository;

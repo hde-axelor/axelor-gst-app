@@ -1,13 +1,13 @@
-package com.axelor.gst.MethodImplementation;
+package com.axelor.gst.service.impl;
 
 import java.math.BigDecimal;
 
 import javax.persistence.PersistenceException;
 
-import com.axelor.gst.ServiceMethod.InvoiceLineService;
+import com.axelor.gst.Service.InvoiceLineService;
 import com.axelor.gst.db.InvoiceLine;
 
-public class InvoiceLineImpl implements InvoiceLineService {
+public class InvoiceLineServiceImpl implements InvoiceLineService {
 
 	@Override
 	public InvoiceLine calculateInvoiceLine(InvoiceLine invoiceLine) {

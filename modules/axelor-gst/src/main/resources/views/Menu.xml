@@ -7,7 +7,6 @@
 
 	<menuitem title="Party" name="menu-party-contact" icon= "fa-book" icon-background="olive"/>
 
-
 	<menuitem title="Party" name="menu-party-all"
 		parent="menu-party-contact" action="party.all" />
 
@@ -28,12 +27,8 @@
 		<view type="form" name="contact-form" />
 	</action-view>
 
-
-
 	<menuitem title="Configurations" parent="menu-party-contact"
 		name="menu-configuration" />
-
-
 
 	<menuitem title="Address" name="menu-address"
 		parent="menu-configuration" action="address.all" />
@@ -54,8 +49,6 @@
 		<view type="form" name="city-form" />
 	</action-view>
 
-
-
 	<menuitem title="State" name="menu-state"
 		parent="menu-configuration" action="state.all" />
 
@@ -64,8 +57,6 @@
 		<view type="grid" name="state-grid" />
 		<view type="form" name="state-form" />
 	</action-view>
-	
-
 
 	<menuitem title="Country" name="menu-country"
 		parent="menu-configuration" action="country.all" />

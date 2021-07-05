@@ -93,10 +93,7 @@
 		title="Import Product" model="com.axelor.gst.db.Invoice">
 		<view type="form" name="invoice-form" />
 		<context name="products" expr="eval:__ids__"/>
+		
 	</action-view>
 	
-	<action-report output="" name="" design="">
-	<param name="" expr="" if=""/>
-	</action-report>
-
 </object-views>

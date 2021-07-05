@@ -9,6 +9,11 @@
 	<grid model="com.axelor.gst.db.State" title="States"
 		name="state-grid">
 
+		<toolbar>
+			<button onClick="import-xml-data" name="xml import button"
+				title="XML Import" />
+		</toolbar>
+
 		<field name="name" title="Name" />
 		<field name="country" title="Country" />
 
@@ -16,11 +21,18 @@
 
 	<form model="com.axelor.gst.db.State" title="State"
 		name="state-form" width="mini">
-       <panel title="Overview" itemSpan="12" >
-		<field name="name" title="Name" />
-		<field name="country" title="Country" />
-       </panel>
+		<panel title="Overview" itemSpan="12">
+			<field name="name" title="Name" />
+			<field name="country" title="Country" />
+		</panel>
 	</form>
+
+
+	<action-method name="import-xml-data">
+		<call class="com.axelor.gst.web.StateController"
+			method="importXmlData" />
+	</action-method>
+
 
 
 </object-views>

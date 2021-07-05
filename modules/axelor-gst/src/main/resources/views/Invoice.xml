@@ -29,7 +29,7 @@
 
 	</grid>
 
-	<form model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-form" onNew="action-record-value">
+	<form model="com.axelor.gst.db.Invoice" title="Invoice" name="invoice-form" onNew="action-record-value" >
   <toolbar>
   <button onClick="action-report" name="invoice-report" icon="fa-print"/>
   </toolbar>
@@ -53,7 +53,7 @@
 			<button onClick="action-paid,save" name="paid-button" title="Paid" showIf="status == 'VALIDATED'" />
 			<button onClick="action-cancelled,save" name="cancelled-button" title="Cancelled"  showIf="status != 'CANCELLED'" />
 		</panel>
-		<panel >
+		<panel>
 			<field name="invoiceItems" ref="com.axelor.gst.db.InvoiceLine" colSpan="12"  
 			onChange="calclate-invoice-amount" showIf="invoiceAddress"/>
 		</panel>
@@ -152,19 +152,20 @@
 	</action-report>
 	
 	<action-method name="calclate-invoice-amount">
-	  <call class="com.axelor.gst.ControllerMethod.InvoiceControllerMethod" method="invoice"/>
+	  <call class="com.axelor.gst.web.InvoiceController" method="invoice"/>
 	</action-method>
 	
 	<action-method name="calclate-invoice-amount-invoice">
-	  <call class="com.axelor.gst.ControllerMethod.InvoiceControllerMethod" method="invoice"/>
+	  <call class="com.axelor.gst.web.InvoiceController" method="invoice"/>
 	</action-method>
 	
 	<action-method name="action-add-product">
-	<call class="com.axelor.gst.ControllerMethod.ListOfProductController" method="invoiceProducts"/>
+	<call class="com.axelor.gst.web.ListOfProductController" method="invoiceProducts"/>
 	</action-method>
 	
 	<action-group name="group-action-invoice">
 		<action name="set-party-contact"/>
+		<action name="calclate-invoice-amount" if = "invoiceItems!=null" />
 	</action-group>
 	
 	<action-attrs name="set-party-contact">
@@ -176,6 +177,7 @@
 	<action-attrs name="action-set-shipping">
 	<attribute name="value" for="shippingAddress" expr="eval:invoiceAddress"/>
 	</action-attrs>
+	
 	
 
 </object-views>

@@ -9,13 +9,14 @@ import org.junit.Test;
 
 import com.axelor.gst.db.Invoice;
 import com.axelor.gst.db.InvoiceLine;
+import com.axelor.gst.service.impl.InvoiceServiceImpl;
 
 public class InvoiceImplTest {
 
 	@Test
 	public void testCalculateInvoiceAmount() {
 
-		InvoiceImpl inv = new InvoiceImpl();
+		InvoiceServiceImpl inv = new InvoiceServiceImpl();
 
 		Invoice invoiceExpected = new Invoice();
 
@@ -42,7 +43,7 @@ public class InvoiceImplTest {
 	@Test
 	public void SecondTestCalculateInvoiceAmount() {
 
-		InvoiceImpl inv = new InvoiceImpl();
+		InvoiceServiceImpl inv = new InvoiceServiceImpl();
 
 		Invoice invoiceExpected = new Invoice();
 

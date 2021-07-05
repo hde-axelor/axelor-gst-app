@@ -1,8 +1,8 @@
-package com.axelor.gst.ServiceMethod;
+package com.axelor.gst.Service;
 
 import com.axelor.gst.db.Invoice;
 
-public interface CalculateInvoice {
+public interface InvoiceService {
    
 
 	public Invoice calculateInvoiceAmount(Invoice invoice);

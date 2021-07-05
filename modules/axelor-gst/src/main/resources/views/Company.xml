@@ -7,7 +7,9 @@
 
 	<grid model="com.axelor.gst.db.Company" title="Company"
 		name="company-grid">
-
+		<toolbar>
+			<button onClick="action-gst-method-imports" name="importsBtn" title="Imports"/>
+		</toolbar>
 
 		<field name="name" />
 		<field name="gstin" title="GSTIN" />
@@ -56,12 +58,14 @@
 
 	</form>
 
-
 	<selection name="contact.type">
 		<option value="Primary Email">Primary Email</option>
 		<option value="Secondary Email">Secondary Email</option>
 		<option value="Others">Others</option>
 	</selection>
 	
+	<action-method name="action-gst-method-imports">
+		<call class="com.axelor.gst.web.CompanyController" method="importData"/>
+	</action-method>
 
 </object-views>

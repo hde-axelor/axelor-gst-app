@@ -14,7 +14,6 @@
 		<string name="type" required="true"/>
 		<string name="primaryEmail" />
 		<string name="secondaryEmail" />
-		<string name="others"/>
 		<string name="primaryPhone" />
 		<string name="secondaryPhone" />
 
