@@ -149,6 +149,7 @@
 	design="invoice.rptdesign" 
 	format="pdf">
 	 <param name="invoiceId" expr="eval:id"/>
+	 <param name="Locale" expr="fr"/>
 	</action-report>
 	
 	<action-method name="calclate-invoice-amount">

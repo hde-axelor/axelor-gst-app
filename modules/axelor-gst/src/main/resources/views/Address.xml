@@ -34,6 +34,14 @@
 
 	</form>
 	
+	
+	<form model="com.axelor.gst.db.Address" title="Address"
+		name="address-form" id="base-addres-form" extension="true">
+		<extend target="//field[@name='type']">
+			<replace/>
+		</extend>
+	</form>
+	
 	<selection name="address.type" >
 	 <option value="default">Default</option>
 	 <option value="invoice">Invoice</option>

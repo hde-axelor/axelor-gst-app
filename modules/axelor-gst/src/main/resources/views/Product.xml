@@ -73,10 +73,9 @@
 			<field name="salePrice" title="Sale Price" />
 			<field name="costPrice" title="Cost Price" />
 			<field name="gstRate" title="GST Rate" />
-
 		</panel>
-
 	</form>
+	 
 
 	<action-attrs name="copy-gst-as-per-product-category">
 		<attribute name="value:set" for="gstRate"
